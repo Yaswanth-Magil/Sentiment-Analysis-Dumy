@@ -2,13 +2,12 @@ name: Sentiment Analysis
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # Runs every day at 07:12 UTC (12:42 PM IST)
-
+    - cron: '0 8 * * *'  # Runs daily at 08:00 UTC
   workflow_dispatch: # Allows manual triggering
 
-permissions: # Added the permissions block
-  contents: write # Allows the workflow to modify the repository's contents
-  pull-requests: write # Allows the workflow to create and manage pull requests (if needed)
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   analyze_sentiment:
@@ -28,17 +27,21 @@ jobs:
 
       - name: Run Sentiment Analysis
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}  # Access the secret
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python sentiment_analysis.py
 
-      - name: Set File Permissions # Added a step to explicitly change file permissions
-        run: chmod +w A2b_January_month.xlsx # Grant write permissions
+      - name: Debug File Existence
+        run: |
+          ls -la
+          cat A2b_January_month.xlsx || echo "File does not exist or is empty"
+
+      - name: Ensure Git Detects Changes
+        run: echo "Updated on $(date)" >> A2b_January_month.xlsx
 
       - name: Commit and Push Changes
         run: |
-          git config --global user.email "actions@github.com"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
-          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/Yaswanth-Magil/Sentiment-Analysis-Dumy.git
-          git add "A2B_January_month.xlsx"  # Corrected capitalization
-          git commit -m "Automated sentiment analysis update" || echo "No changes to commit" # Avoid error if no changes
-          git push origin main #or your main branch
+          git add "A2b_January_month.xlsx"
+          git commit -m "Automated sentiment analysis update" || echo "No changes to commit"
+          git push https://x-access-token:${{ secrets.PAT }}@github.com/Yaswanth-Magil/Sentiment-Analysis-Dumy.git main
