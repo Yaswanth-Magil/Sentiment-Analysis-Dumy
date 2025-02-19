@@ -4,6 +4,8 @@ on:
   schedule:
     - cron: '10 6 * * *'  # Runs every day at 11:40 AM IST
 
+  workflow_dispatch: # Allows manual triggering
+
 permissions: # Added the permissions block
   contents: write # Allows the workflow to modify the repository's contents
   pull-requests: write # Allows the workflow to create and manage pull requests (if needed)
