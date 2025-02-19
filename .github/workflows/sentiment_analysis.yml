@@ -2,7 +2,7 @@ name: Sentiment Analysis
 
 on:
   schedule:
-    - cron: '00 6 * * *'  # Runs every day at 07:00 UTC
+    - cron: '10 6 * * *'  # Runs every day at 07:00 UTC
 
 jobs:
   analyze_sentiment:
