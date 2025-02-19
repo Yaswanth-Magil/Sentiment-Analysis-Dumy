@@ -25,10 +25,13 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}  # Access the secret
         run: python sentiment_analysis.py
 
+      - name: Set File Permissions # Added a step to explicitly change file permissions
+        run: chmod +w A2b_January_month.xlsx # Grant write permissions
+
       - name: Commit and Push Changes
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git add A2b_January_month.xlsx  # Corrected capitalization
+          git add A2b_January_month.xlsx  
           git commit -m "Automated sentiment analysis update" || echo "No changes to commit" # Avoid error if no changes
           git push origin main #or your main branch
