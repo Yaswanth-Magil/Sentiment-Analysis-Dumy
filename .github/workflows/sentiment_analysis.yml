@@ -2,7 +2,7 @@ name: Sentiment Analysis
 
 on:
   schedule:
-    - cron: '30 5 * * *'  # Runs every day at 07:00 UTC
+    - cron: '00 6 * * *'  # Runs every day at 07:00 UTC
 
 jobs:
   analyze_sentiment:
@@ -29,6 +29,6 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git add A2b January month.xlsx  # Only add modified file
+          git add A2b_January_month.xlsx  # Only add modified file
           git commit -m "Automated sentiment analysis update" || echo "No changes to commit" # Avoid error if no changes
           git push origin main #or your main branch
