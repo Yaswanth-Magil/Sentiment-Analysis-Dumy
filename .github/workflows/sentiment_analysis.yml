@@ -2,7 +2,7 @@ name: Sentiment Analysis
 
 on:
   schedule:
-    - cron: '10 6 * * *'  # Runs every day at 11:40 AM IST
+    - cron: '12 7 * * *'  # Runs every day at 11:40 AM IST
 
   workflow_dispatch: # Allows manual triggering
 
