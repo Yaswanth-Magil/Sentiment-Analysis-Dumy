@@ -1,3 +1,5 @@
 openpyxl
-google-generativeai
+google-gener is working correctly locally before running itativeai
 google-api-core
+requests
+pandas
