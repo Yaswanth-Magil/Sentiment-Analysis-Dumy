@@ -25,8 +25,6 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}  # Access the secret
         run: python sentiment_analysis.py
 
-      - name: Set File Permissions # Added a step to explicitly change file permissions
-        run: chmod +w A2b_January_month.xlsx # Grant write permissions
 
       - name: Commit and Push Changes
         run: |
