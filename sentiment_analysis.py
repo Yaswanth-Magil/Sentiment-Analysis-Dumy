@@ -87,7 +87,7 @@ def main():
 
     genai.configure(api_key=api_key)
 
-    xlsx_file_path = "A2B november month reviews.xlsx"  # Relative path
+    xlsx_file_path = "A2b January month.xlsx"  # Relative path
     process_reviews(xlsx_file_path)
 
 if __name__ == "__main__":
