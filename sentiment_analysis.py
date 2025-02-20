@@ -37,7 +37,7 @@ def process_reviews(xlsx_file_path):
 
         sentiment_column_index = get_column_index(sheet, 'Sentiment')
         if sentiment_column_index:
-            print(f"Sentiment column already exists in sheet {sheet_name}. Skipping...")
+            #print(f"Sentiment column already exists in sheet {sheet_name}. Skipping...")
             continue  # Skip processing if sentiment column is already present
 
         reviews_column_index = get_column_index(sheet, 'Reviews')
