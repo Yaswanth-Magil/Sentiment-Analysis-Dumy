@@ -170,7 +170,7 @@ def process_reviews(xlsx_file_path):
 def main():
     """Main function to execute the sentiment analysis."""
     api_key = os.environ.get("GEMINI_API_KEY")
-    # api_key ="AIzaSyAxk2Wog2ylp7wuQgTGdQCakzJXMoRHzO8"
+
     if not api_key:
         print("Error: GEMINI_API_KEY environment variable not set.")
         return
