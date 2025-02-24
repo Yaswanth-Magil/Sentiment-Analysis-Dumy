@@ -177,7 +177,7 @@ def main():
 
     genai.configure(api_key=api_key)
 
-    xlsx_file_path = "/Users/yash/Downloads/Today/Splitted/A2b January month.xlsx"
+    xlsx_file_path = "A2b_January_month.xlsx"
     process_reviews(xlsx_file_path)
 
 
